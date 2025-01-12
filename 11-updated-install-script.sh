@@ -32,8 +32,6 @@ fi
 #     echo "Installing MySQL ... SUCCESS"
 # fi
 
-dnf install git -y
-
 dnf list installed git
 
 if [ $? -ne 0 ] 
