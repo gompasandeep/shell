@@ -16,6 +16,7 @@ then
     exit 1
 else
     echo "Installing MySQL ... SUCCESS"
+fi
 
 dnf install git -y
 
