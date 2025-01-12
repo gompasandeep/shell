@@ -8,7 +8,7 @@ N="\e[0m"
 
 SOURCE_DIR=$1
 DEST_DIR=$2
-DAYS=$(3-14) # if user is not providing no. of days, we are taking 14 days as default
+DAYS=${3:-14} # if user is not providing no. of days, we are taking 14 days as default
 
 LOGS_FOLDER="/var/logs/shellscript-logs" #to save logs in this folder
 LOGS_FILE=$( echo $0 | cut -d "." -f1 ) #echo $0 to print script name; 
@@ -26,9 +26,11 @@ VALIDATE(){
 }
 
 USAGE(){
-    echo -e "$R USAGE:: $N sh 17-backup.sh <SOURCE_DIR> <DEST_DIR> <DAYS(Optional)>"   
+    echo -e "$R USAGE:: $N sh 17-backup.sh <SOURCE_DIR> <DEST_DIR> <DAYS(Optional)>"
+    exit 1
 }
 
+mkdir -p /home/ec2-user/app-logs/
 if [ $# -lt 2 ]
 then
     USAGE
